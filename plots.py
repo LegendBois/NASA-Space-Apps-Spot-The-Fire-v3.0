@@ -49,5 +49,6 @@ def firms_map(data):
                 ]
             }
         ])
-    fig.update_layout(clickmode='event+select', height=600)
+    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    fig.update_layout(clickmode='event+select', height=550)
     return fig
