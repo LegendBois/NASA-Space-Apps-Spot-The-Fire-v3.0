@@ -4,6 +4,7 @@ from dash.dependencies import Input, Output
 import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_daq as daq
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
@@ -39,10 +40,22 @@ app.layout = html.Div([
             dcc.Graph("main_map", figure=firms_map(data))
             ], className="nine columns"),
         html.Div([
-            html.H4("Economic effects"),
+            html.H3("Economic effects"),
+            html.Hr(),
             html.P("Select a marker to populate", id="eco_text", style={'whiteSpace': 'pre-wrap'}),
+            html.Hr(),
             html.H4("Wildlife effects"),
-            html.P("Select a marker to populate", id="wildl_text", style={'whiteSpace': 'pre-wrap'})
+            html.Hr(),
+            html.P("Select a marker to populate", id="wildl_text", style={'whiteSpace': 'pre-wrap'}),
+            html.Hr(),
+            html.Hr(),
+            daq.ToggleSwitch(
+                id='map_toggle',
+                value=False,
+                color="red",
+                label='Scattermap | Heatmap  ',
+                labelPosition='bottom'
+            )
         ], className="three columns")
     ], className="row")
 
@@ -51,7 +64,7 @@ app.layout = html.Div([
 
 
 def format_ec(ec_loss, wt_loss):
-    return "Total Economic assets: %f"%ec_loss +"\nWeighted Economic loss: %f"%wt_loss
+    return "<b>Total Economic assets:</b> %f"%ec_loss +"\n<b>Weighted Economic loss:</b> %f"%wt_loss
 
 def format_wl(specs):
     if specs is not None:
@@ -74,4 +87,13 @@ def marker_select(marker):
         species = get_df_endangered_species(row['latitude'], row['longitude'])
         return format_ec(loss, wt_loss), format_wl(species)
 
+@app.callback(
+    Output("main_map", "figure"),
+    [Input("map_toggle", "value")]
+)
+def change_map(heatmap):
+    if heatmap:
+        return firms_heatmap(data)
+    else:
+        return firms_map(data)
 app.run_server(debug=True)
