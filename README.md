@@ -30,3 +30,21 @@ We also use NLP to extract location data from latest tweets and news sources.
 
 _Combining these to provide a centralized interface for most fire information._
 
+## Resources
+- Data Sources:
+    - NASA Earth data
+    - NOAA
+    - LANDFIRE
+    - CALFIRE
+    - METEOMATICS API
+
+- Satellite Data
+    - GOES16
+    - GOES17
+    - MOPITT
+    - MODIS
+    - VIIRS
+
+- along with __vegetation, land fuel & cover, economic average assets, wildlife statuses and recent fire incident reports.__
+
+
