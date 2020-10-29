@@ -4,9 +4,9 @@ Using each and every possible tool at our disposal to extract wildfire informati
 
 #### [Submission Video](https://www.youtube.com/watch?v=quUQmvZF4eE&feature=youtu.be)
 
-### How We Addressed This Challenge
+## How We Addressed This Challenge
 
-![dash1](resources/Screenshot from 2020-10-04 23-15-32.png)
+![dash1](resources/dash1.png)
 
 __Our earth has had a lot of climatic problems on it because of our actions.__
 
@@ -17,6 +17,8 @@ The reason we opted for this problem is mainly this. At the current rate our fut
 _We also can show where the firemen should start extinguishing it from to minimize spread and damage and which are the least risk areas near the fire where animal rescuers can try to evacuate animals from._
 
 This will not only reduce the environmental and economical damage, but will help in protecting flora and fauna which will help in undoing the collective wrongs we have done on this earth and even though in a small manner, help to solidify a better and healthier future for our future generations.
+
+## How We Developed This Project
 
 We majorly rely on satellite data to spot fires. NASA uses the raw data from the GOES satellites to calculate the fire risks algorithmically. __We use the same but as input channels for a neural network.__
 
